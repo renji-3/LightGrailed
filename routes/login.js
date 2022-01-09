@@ -6,17 +6,20 @@ const dbParams = require("../lib/db.js");
 const db = new Pool(dbParams);
 
 router.get("/", (req, res) => {
-  res.render("register");
-})
+  res.render("login")
+});
 
 router.post("/", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
   return db
-  .query(`INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *`, [username, bcrypt.hashSync(password, 10)])
+  .query(`SELECT * FROM users WHERE username = $1`, [username])
   .then((response) => {
-    console.log("res", response.rows[0])
+    console.log("before res", response)
+    if (bcrypt.compareSync(password, response.rows[0].password)) {
+    console.log("res", response)
+    }
     res.redirect("/")
   })
   .catch((err) => {
