@@ -9,16 +9,16 @@
   <!--External CSS-->
 
   <!--APP CSS-->
-  <link rel="stylesheet" href="/styles/register.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
-  <title>Registration</title>
+  <title>Login</title>
 </head>
 <body>
 
   <div class ="container">
-    <form id ="register" method="POST" action="/register">
+    <form id ="login" method="POST" action="/login">
       <div class="header">
-        <h3 class="register-user">Register</h3>
+        <h3 class="login-user">Login</h3>
           <p>Please fill out this form</p>
       </div>
       <hr>
@@ -28,9 +28,9 @@
         <div class="check-box">
           <input name="checky" id="checkboxy" value="1" type="checkbox" /><label class="terms">I accept the terms of use</label>
         </div>
-        <button type="submit" id="submits">REGISTER NOW</button>
+        <button type="submit" id="submits">Login In</button>
       </div>
-      <p class="login">Already Have an Account? <a href="/login">Log In</a>.</p>
+      <p class="login">Need to Create An Account? <a href="/register">Register</a>.</p>
 
       </div>
     </form>
