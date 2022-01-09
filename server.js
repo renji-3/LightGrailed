@@ -1,11 +1,14 @@
 // load .env data into process.env
-require("dotenv").config();
+require("dotenv").config()
+// console.log(process.env.DB_USER)
 
 // Web server config
 const PORT = process.env.PORT || 8080;
-const sassMiddleware = require("./lib/sass-middleware");
+// const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
+const bodyParser = require('body-parser');
+// const cookieSession = require('cookie-session');
 const morgan = require("morgan");
 
 // PG database client/connection setup
@@ -20,16 +23,21 @@ db.connect();
 app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: ['key1']
+// }));
 
-app.use(
-  "/styles",
-  sassMiddleware({
-    source: __dirname + "/styles",
-    destination: __dirname + "/public/styles",
-    isSass: false, // false => scss, true => sass
-  })
-);
+// app.use(
+//   "/styles",
+//   sassMiddleware({
+//     source: __dirname + "/styles",
+//     destination: __dirname + "/public/styles",
+//     isSass: false, // false => scss, true => sass
+//   })
+// );
 
 app.use(express.static("public"));
 
@@ -37,11 +45,13 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+const registerRoutes = require("./routes/register");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/register", registerRoutes)
 // Note: mount other resources here, using the same pattern above
 
 // Home page
