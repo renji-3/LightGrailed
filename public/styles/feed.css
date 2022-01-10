@@ -1,0 +1,20 @@
+img {
+  margin: 10px;
+  width: 400px;
+  height: 600px;
+}
+
+.display-products{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-header{
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  margin: 0px;
+ }
