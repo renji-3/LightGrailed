@@ -1,7 +1,12 @@
 img {
   margin: 10px;
   width: 200px;
-  height: 200px
+  height: 200px;
+}
+
+.display-products{
+  display: flex;
+  justify-content: center;
 }
 
 .home-header{
