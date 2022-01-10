@@ -48,13 +48,17 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login")
+const filterRoutes = require("./routes/filters")
+const productRoutes = require("./routes/products")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use("/register", registerRoutes)
-app.use("/login", loginRoutes)
+app.use("/register", registerRoutes);
+app.use("/login", loginRoutes);
+app.use("/filters", filterRoutes);
+app.use("/products", productRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -64,23 +68,6 @@ app.use("/login", loginRoutes)
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-app.get("/products/:id", (req, res) => {
-  const id = req.params.id;
-
-  db.query(`SELECT * FROM products WHERE id = $1`, [id])
-  .then((response) => {
-    console.log(response.rows[0])
-    const templateVars = {
-      product: response.rows[0]
-    }
-    console.log("template:", templateVars)
-    res.render("products", templateVars);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
-})
 
 app.get("/favourites", (req, res) => {
   const queryString = `
@@ -97,29 +84,6 @@ app.get("/favourites", (req, res) => {
     console.log(err.message);
   });
 });
-
-app.get("/filters", (req, res) =>{
-  res.render("filters")
-})
-
-app.post("/filters", (req, res) =>{
-  console.log(req.body)
-  const price = req.body.prices;
-
-  return db
-  .query(`SELECT * FROM products WHERE price <= $1 ORDER BY id`, [price])
-  .then((response) => {
-    const templateVars = {
-      products: response.rows
-    }
-    console.log("res", response.rows)
-    console.log("template", templateVars)
-    res.render("filters", templateVars)
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
-})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
