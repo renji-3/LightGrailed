@@ -1,12 +1,13 @@
 img {
   margin: 10px;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 600px;
 }
 
 .display-products{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .home-header{

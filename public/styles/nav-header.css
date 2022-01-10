@@ -18,6 +18,10 @@ header{
   justify-content: space-evenly;
 }
 
+.left-side{
+  display: flex;
+}
+
 .right-side {
   display: flex;
 }
