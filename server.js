@@ -65,6 +65,23 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/products/:id", (req, res) => {
+  const id = req.params.id;
+
+  db.query(`SELECT id, seller_id, product_name, is_available, price, product_description, list_date, image_url FROM products WHERE id = $1`, [id])
+  .then((response) => {
+    console.log(response.rows[0])
+    const templateVars = {
+      product: response.rows[0]
+    }
+    console.log("template:", templateVars)
+    res.render("products", templateVars);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
