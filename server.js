@@ -68,7 +68,7 @@ app.get("/", (req, res) => {
 app.get("/products/:id", (req, res) => {
   const id = req.params.id;
 
-  db.query(`SELECT id, seller_id, product_name, is_available, price, product_description, list_date, image_url FROM products WHERE id = $1`, [id])
+  db.query(`SELECT * FROM products WHERE id = $1`, [id])
   .then((response) => {
     console.log(response.rows[0])
     const templateVars = {
@@ -80,6 +80,45 @@ app.get("/products/:id", (req, res) => {
   .catch((err) => {
     console.log(err.message);
   })
+})
+
+app.get("/favourites", (req, res) => {
+  const queryString = `
+    SELECT * FROM favourites
+    JOIN products ON product_id = products.id
+    WHERE product_id = 1;
+  `
+  db.query(queryString)
+    .then(response => {
+      const templateVars = { products: response.rows }
+      res.render("favourites", templateVars);
+    })
+    .catch((err) => {
+    console.log(err.message);
+  });
+});
+
+app.get("/filters", (req, res) =>{
+  res.render("filters")
+})
+
+app.post("/filters", (req, res) =>{
+  console.log(req.body)
+  const price = req.body.prices;
+
+  return db
+  .query(`SELECT * FROM products WHERE price <= $1 ORDER BY id`, [price])
+  .then((response) => {
+    const templateVars = {
+      products: response.rows
+    }
+    console.log("res", response.rows)
+    console.log("template", templateVars)
+    res.render("filters", templateVars)
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 })
 
 app.listen(PORT, () => {
