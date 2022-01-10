@@ -13,7 +13,7 @@ router.post("/", (req, res) =>{
   const price = req.body.prices;
 
   return db
-  .query(`SELECT * FROM products WHERE price <= $1 ORDER BY id`, [price])
+  .query(`SELECT * FROM products WHERE products.price <= $1`, [price])
   .then((response) => {
     const templateVars = {
       products: response.rows

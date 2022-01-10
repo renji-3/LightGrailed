@@ -85,6 +85,40 @@ app.get("/favourites", (req, res) => {
   });
 });
 
+app.get("/messages", (req, res) => {
+
+  db.query(`SELECT * FROM messages JOIN messagethreads ON messagethreads.id = message_thread_id JOIN products ON products.id = product_id JOIN users ON users.id = seller_id WHERE product_id = $1`, [4])
+  .then((response) => {
+    console.log("response:", response.rows[0])
+    const templateVars = {
+      product: response.rows[0]
+    }
+    console.log("template:", templateVars)
+    res.render("messages", templateVars);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  })
+})
+
+// app.get("/:id/messages", (req, res) => {
+//   const id = req.params.id;
+
+//   db.query(`SELECT * FROM messages JOIN messagethreads ON messagethreads.id = message_thread_id JOIN products ON products.id = product_id JOIN users ON users.id = seller_id WHERE product_id = $1`, [id])
+//   .then((response) => {
+//     console.log("response:", response.rows[0])
+//     const templateVars = {
+//       product: response.rows[0]
+//     }
+//     console.log("template:", templateVars)
+//     res.render("thread", templateVars);
+//   })
+//   .catch((err) => {
+//     console.log(err.message);
+//   })
+// })
+
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
