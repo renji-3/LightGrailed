@@ -8,3 +8,7 @@ img {
   display: flex;
   justify-content: center;
 }
+
+body {
+  margin: 0px;
+ }
