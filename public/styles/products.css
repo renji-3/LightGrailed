@@ -14,10 +14,6 @@ img {
   height: 100%;
 }
 
-.left-container {
-
-}
-
 .right-container {
   display: flex;
   flex-direction: column;
