@@ -5,7 +5,7 @@ h1 {
 article {
   display: block;
   width: 80%;
-  height: 200px;
+  height: 250px;
   padding: 15px;
   border: 2px solid rgb(169, 163, 163);
   margin: auto;
@@ -34,4 +34,14 @@ img {
 
 body{
 margin: 0px;
+}
+
+.trashproduct {
+  float: right;
+  font-size: 25px;
+  padding-right: 26px;
+}
+
+.icons i:hover {
+  color: rgb(20, 26, 184);
 }
