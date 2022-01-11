@@ -1,8 +1,9 @@
-h1 {
-  padding-bottom: 50px;
+.page-title {
+  display: flex;
+  justify-content: center;
 }
 
-article {
+.message-preview {
   display: block;
   width: 80%;
   height: 200px;
@@ -12,7 +13,7 @@ article {
   text-decoration: none;
 }
 
-a {
+.preview-block {
   text-decoration: none;
 }
 
@@ -23,7 +24,7 @@ a {
   padding-left: 50px;
 }
 
-p {
+.descriptions {
   font-size: 22px;
 }
 

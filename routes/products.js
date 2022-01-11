@@ -9,7 +9,7 @@ router.get("/:id", (req, res) => {
 
   db.query(`SELECT * FROM products WHERE products.id = $1`, [id])
   .then((response) => {
-    console.log(response.rows[0])
+    // console.log(response.rows[0])
     const templateVars = {
       product: response.rows[0]
     }

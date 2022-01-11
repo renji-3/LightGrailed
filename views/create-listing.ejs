@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <link rel="stylesheet" href="/styles/create-listing.css" type="text/css" />
+
+  <head>
+    <title>Create Listing</title>
+
+  </head>
+
+  <%- include('partials/header') %>
+
+
+  <body>
+    <h1 class="page-title">Create Listing</h1>
+    <div class="ad-info">
+      <form class="form-info" method="POST" action="/createlisting">
+        <label>Title:</label>
+        <textarea type="text" name="name" id="short-input"></textarea>
+        <label>Price:</label>
+        <textarea type="number" name="price" id="short-input"></textarea>
+        <label>Description:</label>
+        <textarea type="text" name="description"></textarea>
+        <label>Image URL:</label>
+        <textarea type="text" name="image"></textarea>
+        <button type="submit" value="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

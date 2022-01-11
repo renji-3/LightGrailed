@@ -6,7 +6,7 @@ const dbParams = require("../lib/db.js");
 const db = new Pool(dbParams);
 
 router.get("/", (req, res) => {
-  res.render("login")
+  res.render("login");
 });
 
 router.post("/", (req, res) => {
