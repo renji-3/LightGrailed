@@ -12,6 +12,17 @@ header{
   background-color: #9eb8eb;
 }
 
+.price-filt{
+  display: flex;
+  margin-right: 20px;
+  justify-content: space-evenly;
+}
+
+#filt-button{
+  display: flex;
+  margin-left: 0px;
+}
+
 .nav-item {
   display: flex;
   margin-right: 40px;
@@ -24,4 +35,5 @@ header{
 
 .right-side {
   display: flex;
+  align-items: baseline;
 }
