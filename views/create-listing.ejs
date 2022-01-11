@@ -12,21 +12,19 @@
 
 
   <body>
-    <h1>Create Listing</h1>
-    <div class="post-ad-page">
-    <div id="create-listing-form">
-      <form method="POST" action="/createlisting">
+    <h1 class="page-title">Create Listing</h1>
+    <div class="ad-info">
+      <form class="form-info" method="POST" action="/createlisting">
         <label>Title:</label>
-        <input type="text" name="name" id="nav-input"></input>
+        <textarea type="text" name="name" id="short-input"></textarea>
         <label>Price:</label>
-        <input type="number" name="price" id="nav-input" ></input>
+        <textarea type="number" name="price" id="short-input"></textarea>
         <label>Description:</label>
-        <input type="text" name="description" id="nav-input"></input>
+        <textarea type="text" name="description"></textarea>
         <label>Image URL:</label>
-        <input type="text" name="image" id="nav-input"></input>
-        <button type="submit" value="submit" id="create-listing-submit">Submit</button>
+        <textarea type="text" name="image"></textarea>
+        <button type="submit" value="submit">Submit</button>
       </form>
-    </div>
     </div>
   </body>
 </html>
