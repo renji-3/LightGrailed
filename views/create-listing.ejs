@@ -3,30 +3,21 @@
   <head>
     <title>Create Listing</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
+  
+  <%- include('partials/header') %>
 
   <body>
-    <%- include('partials/header') %>
     <h1 style="padding-top: 130px; display: flex; justify-content: center;">Create Listing</h1>
     <div class="post-ad-page">
     <div id="create-listing-form">
       <form method="POST" action="/createlisting">
         <label>Title:</label>
-        <input type="text" name="name" id="nav-input" style="width: 350px;"></input><p style="line-height: 0.1em;">&nbsp;</p>
-        <p style="line-height: 0.1em;">&nbsp;</p>
-        <p style="line-height: 0.1em;">&nbsp;</p>
+        <input type="text" name="name" id="nav-input" style="width: 350px;"></input>
         <label>Price:</label>
         <input type="number" name="price" id="nav-input" style="width: 350px"></input>
-        <p style="line-height: 0.1em;">&nbsp;</p>
         <label>Description:</label>
         <input type="text" name="description" id="nav-input" style="width: 290px;"></input>
-        <p style="line-height: 0.1em;">&nbsp;</p>
         <label>Image URL:</label>
         <input type="text" name="image" id="nav-input"></input>
         <button type="submit" value="submit" id="create-listing-submit">Submit</button>
