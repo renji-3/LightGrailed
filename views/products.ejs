@@ -12,7 +12,13 @@
   <!--APP CSS-->
   <link rel="stylesheet" href="/styles/products.css" type="text/css" />
 
-  <title><%= product.product_name %></title>
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/favourites.js"></script>
+
+  <title>Document</title>
 </head>
 <%- include('partials/header') %>
 <body>
@@ -31,7 +37,7 @@
       <h3 class="price">$<%= product.price %></h3>
         <div class="icons">
           <!-- <input type="submit" id="icon-submits"> -->
-          <i class="far fa-heart" id="heart"></i>
+          <i id="<%= product.id %>" class="far fa-heart favproduct" ></i>
         <!-- </input> -->
         </div>
       <div class="message">
