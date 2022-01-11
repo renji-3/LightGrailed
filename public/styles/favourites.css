@@ -3,17 +3,13 @@
   justify-content: center;
 }
 
-article {
+.fav-listing {
   display: block;
   width: 80%;
   height: 200px;
   padding: 15px;
   border: 2px solid rgb(169, 163, 163);
   margin: auto;
-  text-decoration: none;
-}
-
-a {
   text-decoration: none;
 }
 
@@ -24,7 +20,7 @@ a {
   padding-left: 50px;
 }
 
-p {
+.descriptions {
   font-size: 22px;
 }
 

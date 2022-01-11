@@ -1,16 +1,32 @@
-header{
+header {
+  font-family: 'Elephant', Times, serif;
+  color: black;
+  font-size: large;
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
   width: 100%;
+}
+
+a
+ {
+   color: black;
+ }
+
+
+.nav-header {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: baseline;
   position: relative;
   height: 25px;
   padding: 3em;
-  margin: 0px;
-  background-color: #9eb8eb;
+  margin: 0px
 }
 
 .price-filt{
@@ -22,11 +38,19 @@ header{
 #prices{
   margin-left: -30px;
   border: 10px;
+  font-family: 'Elephant', Times, serif;
+  color: black;
 }
 
 #filt-button{
   display: flex;
   margin-left: 0px;
+}
+
+.center-button {
+  font-size: x-large;
+  text-decoration: none;
+  margin: 0px 80px 0px 80px;
 }
 
 .nav-item {
@@ -36,7 +60,7 @@ header{
   text-decoration: none;
 }
 
-.left-side{
+.left-side {
   display: flex;
   align-items: baseline;
 }
