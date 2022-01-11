@@ -47,9 +47,9 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const registerRoutes = require("./routes/register");
-const loginRoutes = require("./routes/login")
-const filterRoutes = require("./routes/filters")
-const productRoutes = require("./routes/products")
+const loginRoutes = require("./routes/login");
+const filterRoutes = require("./routes/filters");
+const productRoutes = require("./routes/products");
 const listingRoutes = require("./routes/createListing");
 
 // Mount all resource routes
@@ -84,12 +84,16 @@ app.get("/", (req, res) => {
 });
 
 app.get("/favourites", (req, res) => {
-  const queryString = `
-    SELECT * FROM products
+  const id = req.session.userID;
+  console.log(id);
+  console.log("123");
+
+  const queryString =
+    `SELECT products.*, favourites.* FROM products
     JOIN favourites ON product_id = products.id
-    WHERE products.id = $1;
-  `;
-  db.query(queryString, [1])
+    WHERE favourites.user_id = $1`;
+
+  db.query(queryString, [id])
     .then(response => {
       console.log("res:", response.rows);
       const templateVars = {
@@ -102,7 +106,6 @@ app.get("/favourites", (req, res) => {
       console.log(err.message);
     });
 });
-
 app.get("/messages", (req, res) => {
 
   db.query(`SELECT * FROM messages JOIN messagethreads ON messagethreads.id = message_thread_id JOIN products ON products.id = product_id JOIN users ON users.id = seller_id WHERE product_id = $1`, [4])
@@ -127,16 +130,16 @@ app.post("/favourites", (req, res) => {
   db.query(`
     INSERT INTO favourites (user_id, product_id) VALUES ($1, $2)
   `, [user_id, product_id])
-  .then((response) => {
-    console.log(response)
-    res.send("success!~")
-  })
-  .catch((err) => {
-    console.log(err.message);
-    res.send("failure")
-  });
+    .then((response) => {
+      console.log(response);
+      res.send("success!~");
+    })
+    .catch((err) => {
+      console.log(err.message);
+      res.send("failure");
+    });
 
-})
+});
 
 
 app.listen(PORT, () => {
