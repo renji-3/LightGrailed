@@ -84,23 +84,26 @@ app.get("/", (req, res) => {
 });
 
 app.get("/favourites", (req, res) => {
-  const queryString = `
-    SELECT * FROM products
+  const id = req.session.userID
+  console.log(id)
+
+  const queryString = 
+    `SELECT products.*, favourites.* FROM products
     JOIN favourites ON product_id = products.id
-    WHERE products.id = $1;
-  `;
-  db.query(queryString, [1])
+    WHERE favourites.user_id = $1`;
+  
+  db.query(queryString, [id])
     .then(response => {
-      console.log("res:", response.rows);
+      console.log("res:", response.rows)
       const templateVars = {
         product: response.rows
-      };
-      console.log("template:", templateVars);
+      }
+      console.log("template:", templateVars)
       res.render("favourites", templateVars);
     })
     .catch((err) => {
-      console.log(err.message);
-    });
+    console.log(err.message);
+  });
 });
 
 app.get("/messages", (req, res) => {
@@ -142,4 +145,3 @@ app.post("/favourites", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
