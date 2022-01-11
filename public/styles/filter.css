@@ -1,5 +1,19 @@
 img {
-  width: 500px;
+  object-fit: cover;
+  margin: 10px;
+  width: 400px;
+  height: 365px;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+}
+
+.filtered-products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 body {
