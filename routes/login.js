@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
       req.session.userID = response.rows[0].id;
       console.log(req.session);
       res.redirect("/");
-    } 
+    }
     else console.log('BAD PASS!')
   })
   .catch((err) => {
