@@ -4,8 +4,9 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    res.render("createlisting");
+    res.render("create-listing");
   });
+  
   router.post("/", (req, res) => {
     const userID = req.session.userID;
     const price = (req.body.price * 100);
