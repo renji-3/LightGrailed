@@ -8,17 +8,17 @@ router.get("/:id", (req, res) => {
   const id = req.params.id;
 
   db.query(`SELECT * FROM products WHERE products.id = $1`, [id])
-  .then((response) => {
-    console.log(response.rows[0])
-    const templateVars = {
-      product: response.rows[0]
-    }
-    console.log("template:", templateVars)
-    res.render("products", templateVars);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
-})
+    .then((response) => {
+      console.log(response.rows[0]);
+      const templateVars = {
+        product: response.rows[0]
+      };
+      console.log("template:", templateVars);
+      res.render("products", templateVars);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
 
-module.exports = router
+module.exports = router;
