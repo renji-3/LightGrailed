@@ -1,4 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 
-<h1>hellowwolrd</h1>
+  <!--APP CSS-->
+  <link rel="stylesheet" href="/styles/favourites.css" type="text/css" />
+</head>
+<%- include('partials/header') %>
+<body>
+
+  <h1>My Favourites</h1>
+
+  <article>
+  <a href="#" class="block">
+    <img src="<%= product.image_url %>">
+    <div class="msg-container" id="text">
+    <h2 class="title"><%= product.product_name %></h2>
+      <p class="descriptions"><%= product.message_content %></p>
+      <p class="descriptions"><%= product.username %></p>
+    </div>
+  </a>
+  </article>
+
+</body>
+</html>

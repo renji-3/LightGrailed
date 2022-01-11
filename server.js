@@ -9,7 +9,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
-// const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session');
 const morgan = require("morgan");
 
 // PG database client/connection setup
@@ -26,10 +26,10 @@ app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: ['key1']
-// }));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 
 // app.use(
 //   "/styles",
@@ -66,18 +66,33 @@ app.use("/products", productRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  return db.query(`SELECT * FROM products ORDER BY id`)
+  .then((response) => {
+    console.log("response:", response.rows)
+    const templateVars = {
+      product: response.rows
+    }
+    console.log("template:", templateVars)
+    res.render("index", templateVars);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  })
 });
 
 app.get("/favourites", (req, res) => {
   const queryString = `
-    SELECT * FROM favourites
-    JOIN products ON product_id = products.id
-    WHERE product_id = 1;
+    SELECT * FROM products
+    JOIN favourites ON product_id = products.id
+    WHERE products.id = $1;
   `
-  db.query(queryString)
+  db.query(queryString, [1])
     .then(response => {
-      const templateVars = { products: response.rows }
+      console.log("res:", response.rows)
+      const templateVars = {
+        product: response.rows
+      }
+      console.log("template:", templateVars)
       res.render("favourites", templateVars);
     })
     .catch((err) => {
