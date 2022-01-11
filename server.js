@@ -47,13 +47,9 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const registerRoutes = require("./routes/register");
-<<<<<<< HEAD
 const loginRoutes = require("./routes/login")
 const filterRoutes = require("./routes/filters")
 const productRoutes = require("./routes/products")
-=======
-const loginRoutes = require("./routes/login");
->>>>>>> 204c6e01412174859fc4ee998a8f6341556706df
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -61,11 +57,8 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
-<<<<<<< HEAD
 app.use("/filters", filterRoutes);
 app.use("/products", productRoutes);
-=======
->>>>>>> 204c6e01412174859fc4ee998a8f6341556706df
 // Note: mount other resources here, using the same pattern above
 
 // Home page
