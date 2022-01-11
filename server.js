@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 app.use(cookieSession({
   name: 'session',
-  keys: ['key1']
+  keys: ['midterm']
 }));
 
 // app.use(
@@ -63,47 +63,60 @@ app.use("/products", productRoutes);
 app.use("/createlisting", listingRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
+
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
   return db.query(`SELECT * FROM products ORDER BY id`)
-  .then((response) => {
-    console.log("response:", response.rows)
-    const templateVars = {
-      product: response.rows
-    }
-    console.log("template:", templateVars)
-    res.render("index", templateVars);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
+    .then((response) => {
+      console.log("response:", response.rows);
+      const templateVars = {
+        product: response.rows
+      };
+      console.log("template:", templateVars);
+      res.render("index", templateVars);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 });
 
 app.get("/favourites", (req, res) => {
-  const id = req.session.userID
-  console.log(id)
-  console.log("123")
-
   const queryString = `
-    SELECT products.*, favourites.* FROM products
+    SELECT * FROM products
     JOIN favourites ON product_id = products.id
-    WHERE favourites.user_id = $1;
-  `
-  db.query(queryString, [id])
+    WHERE products.id = $1;
+  `;
+  db.query(queryString, [1])
     .then(response => {
-      console.log("res:", response.rows)
+      console.log("res:", response.rows);
       const templateVars = {
         product: response.rows
-      }
-      console.log("template:", templateVars)
+      };
+      console.log("template:", templateVars);
       res.render("favourites", templateVars);
     })
     .catch((err) => {
-    console.log(err.message);
-  });
+      console.log(err.message);
+    });
+});
+
+app.get("/messages", (req, res) => {
+
+  db.query(`SELECT * FROM messages JOIN messagethreads ON messagethreads.id = message_thread_id JOIN products ON products.id = product_id JOIN users ON users.id = seller_id WHERE product_id = $1`, [4])
+    .then((response) => {
+      console.log("response:", response.rows[0]);
+      const templateVars = {
+        product: response.rows[0]
+      };
+      console.log("template:", templateVars);
+      res.render("messages", templateVars);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 });
 
 app.post("/favourites", (req, res) => {
@@ -124,41 +137,6 @@ app.post("/favourites", (req, res) => {
   });
 
 })
-
-
-
-app.get("/messages", (req, res) => {
-
-  db.query(`SELECT * FROM messages JOIN messagethreads ON messagethreads.id = message_thread_id JOIN products ON products.id = product_id JOIN users ON users.id = seller_id WHERE product_id = $1`, [4])
-  .then((response) => {
-    console.log("response:", response.rows[0])
-    const templateVars = {
-      product: response.rows[0]
-    }
-    console.log("template:", templateVars)
-    res.render("messages", templateVars);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
-})
-
-// app.get("/:id/messages", (req, res) => {
-//   const id = req.params.id;
-
-//   db.query(`SELECT * FROM messages JOIN messagethreads ON messagethreads.id = message_thread_id JOIN products ON products.id = product_id JOIN users ON users.id = seller_id WHERE product_id = $1`, [id])
-//   .then((response) => {
-//     console.log("response:", response.rows[0])
-//     const templateVars = {
-//       product: response.rows[0]
-//     }
-//     console.log("template:", templateVars)
-//     res.render("thread", templateVars);
-//   })
-//   .catch((err) => {
-//     console.log(err.message);
-//   })
-// })
 
 
 app.listen(PORT, () => {
