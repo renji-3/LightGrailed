@@ -3,10 +3,10 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  router.get("/createlisting", (req, res) => {
+  router.get("/", (req, res) => {
     res.render("createlisting");
   });
-  router.post("/createlisting", (req, res) => {
+  router.post("/", (req, res) => {
     const userID = req.session.userID;
     const price = (req.body.price * 100);
     const productName = req.body.name;
