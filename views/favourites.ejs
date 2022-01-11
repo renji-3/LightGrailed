@@ -12,8 +12,8 @@
   <!--APP CSS-->
   <link rel="stylesheet" href="/styles/favourites.css" type="text/css" />
 
-  <!-- External JS
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/favourites.js"></script>
@@ -31,9 +31,29 @@
     <h2 class="title"><%= key.product_name %></h2>
       <p class="descriptions"><%= key.product_description %></p>
       <p class="descriptions"><%= key.price %></p>
+      <div class="icons">
+        <i id="<%= key.id %>" class="fas fa-trash trashproduct" onclick="approve(this.id)"></i>
+      </div>
     </div>
   </article>
   <% } %>
 
 </body>
 </html>
+
+<script type="text/javascript">
+  function approve(id) {
+    let product_id = id;
+    console.log(product_id);
+
+    $.ajax({
+      url: "/favourites/delete",
+      method: "DELETE",
+      data: `product_id=${product_id}`,
+      success: function(html) {
+        location.reload();
+      }
+    })
+    .reload()
+  }
+</script>
