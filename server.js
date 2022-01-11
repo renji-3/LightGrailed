@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 app.use(cookieSession({
   name: 'session',
-  keys: ['key1']
+  keys: ['midterm']
 }));
 
 // app.use(
