@@ -13,7 +13,6 @@ module.exports = (db) => {
     const productName = req.body.name;
     const productDescription = req.body.description;
     const imageUrl = req.body.image;
-    console.log("+++++++++++++++++++++++++++++++", req.body)
 
     const queryString = `
     INSERT INTO products (seller_id, product_name, price, product_description, image_url)
@@ -23,7 +22,7 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(response => {
-        res.redirect("/");
+        res.redirect("/success");
       })
       .catch(err => {
         console.log(err.message);

@@ -141,6 +141,10 @@ app.post("/favourites", (req, res) => {
 
 });
 
+app.get("/success", (req, res) => {
+  res.render("listing-created");
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
