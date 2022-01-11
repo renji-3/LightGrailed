@@ -5,11 +5,27 @@ header{
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   position: relative;
   height: 25px;
   padding: 3em;
   margin: 0px;
   background-color: #9eb8eb;
+}
+
+.price-filt{
+  display: flex;
+  margin-right: 20px;
+  justify-content: space-evenly;
+}
+
+#prices{
+  margin-left: -30px;
+}
+
+#filt-button{
+  display: flex;
+  margin-left: 0px;
 }
 
 .nav-item {
@@ -20,8 +36,10 @@ header{
 
 .left-side{
   display: flex;
+  align-items: baseline;
 }
 
 .right-side {
   display: flex;
+  align-items: baseline;
 }
