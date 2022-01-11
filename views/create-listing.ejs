@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <link rel="stylesheet" href="/styles/create-listing.css" type="text/css" />
+
   <head>
     <title>Create Listing</title>
 
   </head>
-  
+
   <%- include('partials/header') %>
 
   <body>
-    <h1 style="padding-top: 130px; display: flex; justify-content: center;">Create Listing</h1>
+    <h1>Create Listing</h1>
     <div class="post-ad-page">
     <div id="create-listing-form">
       <form method="POST" action="/createlisting">
         <label>Title:</label>
-        <input type="text" name="name" id="nav-input" style="width: 350px;"></input>
+        <input type="text" name="name" id="nav-input"></input>
         <label>Price:</label>
-        <input type="number" name="price" id="nav-input" style="width: 350px"></input>
+        <input type="number" name="price" id="nav-input" ></input>
         <label>Description:</label>
-        <input type="text" name="description" id="nav-input" style="width: 290px;"></input>
+        <input type="text" name="description" id="nav-input"></input>
         <label>Image URL:</label>
         <input type="text" name="image" id="nav-input"></input>
         <button type="submit" value="submit" id="create-listing-submit">Submit</button>
