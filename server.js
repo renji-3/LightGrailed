@@ -1,5 +1,5 @@
 // load .env data into process.env
-require("dotenv").config()
+require("dotenv").config();
 // console.log(process.env.DB_USER)
 
 // Web server config
@@ -137,3 +137,4 @@ app.get("/messages", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
