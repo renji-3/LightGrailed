@@ -1,5 +1,5 @@
 header{
-  width: 100vw;
+  width: 100%;
 }
 
 .navbar {
@@ -9,7 +9,7 @@ header{
   height: 25px;
   padding: 3em;
   margin: 0px;
-  background-color: #dea5a5;
+  background-color: #9eb8eb;
 }
 
 .nav-item {
