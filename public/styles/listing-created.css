@@ -28,3 +28,8 @@ h1 {
   font-size: 16px;
   font-family: 'Courier New', Courier, monospace;
 }
+
+.back-to-home:hover {
+  background-color: grey;
+  cursor: pointer;
+}

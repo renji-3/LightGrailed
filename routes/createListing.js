@@ -9,7 +9,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const userID = req.session.userID;
-    const price = (req.body.price * 100);
+    const price = (req.body.price);
     const productName = req.body.name;
     const productDescription = req.body.description;
     const imageUrl = req.body.image;
@@ -29,5 +29,5 @@ module.exports = (db) => {
       });
   });
   return router;
-};
+};  
 
