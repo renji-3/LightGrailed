@@ -41,6 +41,11 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+.sender:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
 label {
   font-weight: bold;
 }
