@@ -28,14 +28,15 @@
 
   <% for (let key of product) { %>
     <div class="fav-listing">
-      <a class="product-link" href="/products/<%= key.id %>">
+      <!-- <a class="product-link" href="/products/<%= key.id %>"> -->
         <img src="<%= key.image_url %>">
           <div class="msg-container" id="text">
             <h2 class="title"><%= key.product_name %></h2>
               <p class="descriptions"><%= key.product_description %></p>
               <p class="descriptions"><%= key.price %></p>
-        </div>
-      </a>
+                <i id="<%= key.id %>" class="fas fa-trash trashproduct" onclick="approve(this.id)"></i>
+          </div>
+      <!-- </a> -->
   </div>
   <% } %>
 
