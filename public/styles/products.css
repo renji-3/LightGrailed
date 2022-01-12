@@ -35,7 +35,7 @@ body {
   color: red;
 }
 
-.message #submits {
+input {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -47,7 +47,7 @@ body {
   letter-spacing: 1px;
   text-align: center;
   text-decoration: none;
-  background: linear-gradient(0deg, #222121, #666668);
+  background: linear-gradient(0deg, #788cb3, #b8c8ef);
   border-radius: 5px;
   border: 1px solid #737b8d;
   box-shadow:
@@ -58,7 +58,8 @@ body {
       0px 0px 0px rgba(255,255,255,0);
   display: table;
 }
-  
-.message #submits:hover {
-  background: linear-gradient(0deg, #757779, #a4a6ac);
+
+input:hover {
+  background: linear-gradient(0deg, #55617c, #afbfe0);
 }
+

@@ -1,6 +1,7 @@
 .bg {
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/diagonal-striped-brick.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .container {
@@ -23,7 +24,7 @@
 #register .header {
   margin-bottom: 20px;
 }
-  
+
 #register .header h3 {
   color: #3f3f3f;
   font-size: 30px;
