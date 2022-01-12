@@ -1,0 +1,30 @@
+body {
+  margin: 0px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.page-content {
+  display: flex;
+  margin: 200px;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: -10px;
+}
+
+.back-to-home {
+  background-color: rgb(50, 50, 50);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 10px 10px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}

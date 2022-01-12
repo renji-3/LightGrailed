@@ -6,13 +6,13 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     res.render("create-listing");
   });
-  
+
   router.post("/", (req, res) => {
     const userID = req.session.userID;
-    const price = (req.body.price * 100);
+    const price = (req.body.price);
     const productName = req.body.name;
     const productDescription = req.body.description;
-    const imageUrl = req.body.image_url;
+    const imageUrl = req.body.image;
 
     const queryString = `
     INSERT INTO products (seller_id, product_name, price, product_description, image_url)
@@ -22,7 +22,7 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(response => {
-        res.redirect("/");
+        res.redirect("/success");
       })
       .catch(err => {
         console.log(err.message);
@@ -30,4 +30,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
