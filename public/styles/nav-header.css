@@ -1,8 +1,24 @@
-a
- {
+a {
    color: black;
  }
 
+ .logout {
+  background-color: rgb(50, 50, 50);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Elephant', TImes, serif;
+ }
+
+ .logout:hover {
+   background-color: grey;
+   cursor: pointer;
+ }
 
 .nav-header {
   display: flex;

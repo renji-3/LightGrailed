@@ -83,6 +83,11 @@ app.get("/", (req, res) => {
     });
 });
 
+app.post('/logout', (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
+
 app.get("/favourites", (req, res) => {
   const id = req.session.userID;
   console.log(id);
