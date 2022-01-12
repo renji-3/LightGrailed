@@ -27,6 +27,10 @@
   font-size: 22px;
 }
 
+.product-link {
+  text-decoration: none;
+}
+
 img {
   float: left;
   width: 15rem;
