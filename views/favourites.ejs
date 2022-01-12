@@ -21,20 +21,24 @@
 
 </head>
 <%- include('partials/header') %>
+
 <body>
 
   <h1 class="page-name">My Favourites</h1>
 
   <% for (let key of product) { %>
-  <a class="product-link" href="/products/<%= key.id %>"><article class="fav-listing">
-    <img src="<%= key.image_url %>">
-      <div class="msg-container" id="text">
-        <h2 class="title"><%= key.product_name %></h2>
-          <p class="descriptions"><%= key.product_description %></p>
-          <p class="descriptions"><%= key.price %></p>
-      </div>
-  </article></a>
+    <div class="fav-listing">
+      <a class="product-link" href="/products/<%= key.id %>">
+        <img src="<%= key.image_url %>">
+          <div class="msg-container" id="text">
+            <h2 class="title"><%= key.product_name %></h2>
+              <p class="descriptions"><%= key.product_description %></p>
+              <p class="descriptions"><%= key.price %></p>
+        </div>
+      </a>
+  </div>
   <% } %>
 
 </body>
+
 </html>
