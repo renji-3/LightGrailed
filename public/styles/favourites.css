@@ -1,18 +1,16 @@
-h1 {
-  padding-bottom: 50px;
+.page-name {
+  display: flex;
+  justify-content: center;
 }
 
-article {
-  display: block;
-  width: 80%;
-  height: 250px;
+.fav-listing {
+  display: flex;
+  width: 60%;
+  height: 200px;
   padding: 15px;
   border: 2px solid rgb(169, 163, 163);
-  margin: auto;
-  text-decoration: none;
-}
-
-a {
+  margin-bottom: 20px;
+  margin-left: 17%;
   text-decoration: none;
 }
 
@@ -23,25 +21,21 @@ a {
   padding-left: 50px;
 }
 
-p {
+.descriptions {
   font-size: 22px;
 }
 
+.product-link {
+  text-decoration: none;
+}
+
 img {
+  object-fit: cover;
   float: left;
   width: 15rem;
+  height: 10rem
 }
 
 body{
 margin: 0px;
-}
-
-.trashproduct {
-  float: right;
-  font-size: 25px;
-  padding-right: 26px;
-}
-
-.icons i:hover {
-  color: rgb(20, 26, 184);
 }
