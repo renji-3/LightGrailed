@@ -17,6 +17,7 @@
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/favourites.js"></script>
+  <script type="text/javascript" src="/scripts/message.js"></script>
 
   <title><%= product.product_name %></title>
 </head>
@@ -36,14 +37,13 @@
         <p class="descriptions"><%= product.product_description %></p>
       <h3 class="price">$<%= product.price %></h3>
         <div class="icons">
-          <!-- <input type="submit" id="icon-submits"> -->
           <i id="<%= product.id %>" class="far fa-heart favproduct" ></i>
-        <!-- </input> -->
         </div>
       <div class="message">
-        <form method="GET" action="/messages">
-          <div>
-          <button type="submit" id="submits">Message Seller</button>
+        <form id="message-form">
+          <div class="save">
+            <textarea id="text-message" cols="30" rows="10" placeholder="Leave a message to the seller." required></textarea>
+            <input type="submit" value="Message Seller" class="submit-btn">
           </div>
         </form>
       </div>

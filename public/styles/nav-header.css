@@ -1,84 +1,84 @@
 a {
-   color: black;
- }
+  color: black;
+}
 
- .logout {
-  background-color: rgb(50, 50, 50);
-  border: none;
-  border-radius: 10px;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-family: 'Elephant', TImes, serif;
- }
+.logout {
+ background-color: rgb(50, 50, 50);
+ border: none;
+ border-radius: 10px;
+ color: white;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ font-family: 'Elephant', TImes, serif;
+}
 
- .logout:hover {
-   background-color: grey;
-   cursor: pointer;
- }
+.logout:hover {
+  background-color: grey;
+  cursor: pointer;
+}
 
 .nav-header {
-  display: flex;
-  font-family: 'Elephant', Times, serif;
-  color: black;
-  font-size: large;
-  margin-top: -20px;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  width: 100%;
+ display: flex;
+ font-family: 'Elephant', Times, serif;
+ color: black;
+ font-size: large;
+ margin-top: -20px;
+ display: flex;
+ justify-content: center;
+ align-self: center;
+ width: 100%;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: baseline;
-  position: relative;
-  height: 25px;
-  padding: 3em;
-  margin: 0px
+ display: flex;
+ justify-content: space-evenly;
+ align-items: baseline;
+ position: relative;
+ height: 25px;
+ padding: 3em;
+ margin: 0px
 }
 
 .price-filt{
-  display: flex;
-  margin-right: 20px;
-  justify-content: space-evenly;
+ display: flex;
+ margin-right: 20px;
+ justify-content: space-evenly;
 }
 
 #prices{
-  margin-left: -30px;
-  border: 10px;
-  font-family: 'Elephant', Times, serif;
-  color: black;
+ margin-left: -30px;
+ border: 10px;
+ font-family: 'Elephant', Times, serif;
+ color: black;
 }
 
 #filt-button{
-  display: flex;
-  margin-left: 0px;
+ display: flex;
+ margin-left: 0px;
 }
 
 .center-button {
-  font-size: x-large;
-  text-decoration: none;
-  margin: 0px 80px 0px 80px;
+ font-size: x-large;
+ text-decoration: none;
+ margin: 0px 80px 0px 80px;
 }
 
 .nav-item {
-  display: flex;
-  margin-right: 40px;
-  justify-content: space-evenly;
-  text-decoration: none;
+ display: flex;
+ margin-right: 40px;
+ justify-content: space-evenly;
+ text-decoration: none;
 }
 
 .left-side {
-  display: flex;
-  align-items: baseline;
+ display: flex;
+ align-items: baseline;
 }
 
 .right-side {
-  display: flex;
-  align-items: baseline;
+ display: flex;
+ align-items: baseline;
 }
