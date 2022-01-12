@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  font-family:'Courier New', Courier, monospace;
 }
 
 .page-title{
@@ -24,6 +25,29 @@ body {
   width: 400px;
   height: 200px;
   margin-bottom: 20px;
+}
+
+.sender {
+  background-color: rgb(50, 50, 50);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 10px 10px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.sender:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+label {
+  font-weight: bold;
 }
 
 #short-input {
