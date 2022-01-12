@@ -43,3 +43,21 @@
 </body>
 
 </html>
+
+
+<script type="text/javascript">
+  function approve(id) {
+    let product_id = id;
+    console.log(product_id);
+
+    $.ajax({
+      url: "/favourites/delete",
+      method: "DELETE",
+      data: `product_id=${product_id}`,
+      success: function(html) {
+        location.reload();
+      }
+    })
+    .reload()
+  }
+</script>
