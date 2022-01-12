@@ -4,11 +4,11 @@ const router  = express.Router();
 router.get("/messagethreads/:id", (req, res) => { //Display specific conversation
 
   const queryString = `
-    SELECT * FROM messages 
+    SELECT * FROM messages
     WHERE message_thread_id = $1
   `
   const messagethreadID = req.params.id;
-  
+
   db.query(queryString, [messagethreadID])
   .then(data => {
     const templateVars = { messages: data.rows, messagethread_id: messagethreadID }
@@ -17,13 +17,13 @@ router.get("/messagethreads/:id", (req, res) => { //Display specific conversatio
   })
 });
 
- router.post("/:id", (req, res) => { //Send message 
+ router.post("/:id", (req, res) => { //Send message
     const messagethreadID = req.params.id;
     const senderID = req.session.userID;
     const messageContent = req.body.message;
 
     const queryString1 = `
-      SELECT from_user FROM messagethreads 
+      SELECT from_user FROM messagethreads
       WHERE id = $1
     `
     db.query(queryString1, [messagethreadID])
@@ -33,10 +33,10 @@ router.get("/messagethreads/:id", (req, res) => { //Display specific conversatio
         console.log(senderID, buyerID);
 
         if (senderID === buyerID) from_buyer = true;
-      
+
       //Save message into db
-      const queryString2 = ` 
-        INSERT INTO messages (from_buyer, message_thread_id, message_content) 
+      const queryString2 = `
+        INSERT INTO messages (from_buyer, message_thread_id, message_content)
         VALUES ($1, $2, $3)
       `
 

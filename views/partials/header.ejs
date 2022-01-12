@@ -7,11 +7,12 @@
 <!--APP CSS-->
 <link rel="stylesheet" href="/styles/nav-header.css" type="text/css" />
 
+
 <header class="nav-header">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar">
         <div class="left-side">
-          <a class="nav-item" href="/">GraiLHLed</a>
+          <a class="nav-item site-name" href="/">GraiLHLed</a>
           <div class="search"></div>
             <div class="price-filt">
               <a class="nav-item">Filter by Price:</a>
@@ -28,16 +29,24 @@
               </form>
             </div>
           </div>
+
+          <a class="fas fa-space-shuttle center-button" href="/"></a>
+
         <div class="right-side">
           <a class="nav-item" href="/favourites"><i class="far fa-heart"></i></a>
           <a class="nav-item" href="/messages"><i class="far fa-comment-alt"></i></a>
           <a class="nav-item" href="/createlisting">Create Listing</a>
           <a class="nav-item" href="/login">Login</a>
           <a class="nav-item" href="/register">Register</a>
+          <form method="POST" action="/logout">
+            <!-- <a type="submit" class="nav-item" href="/login">Logout</a> -->
+            <button class="logout" type="submit">Logout</button>
+          </form>
       </div>
       </div>
     </div>
   </nav>
 
 </header>
+
 

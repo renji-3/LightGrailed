@@ -1,33 +1,21 @@
 body {
   margin: 0px;
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.page-title{
+.page-content {
   display: flex;
-  justify-content: center;
-}
-
-.ad-info {
-  display: flex;
-  justify-content: center;
+  margin: 200px;
+  align-items: center;
   flex-direction: column;
   align-items: center;
 }
 
-.form-info {
-  width: 400px;
-  height: 600px;
+h1 {
+  margin-bottom: -10px;
 }
 
-.form-info textarea {
-  resize: none;
-  width: 400px;
-  height: 200px;
-  margin-bottom: 20px;
-}
-
-.sender {
+.back-to-home {
   background-color: rgb(50, 50, 50);
   border: none;
   border-radius: 10px;
@@ -41,15 +29,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.sender:hover {
+.back-to-home:hover {
   background-color: grey;
   cursor: pointer;
-}
-
-label {
-  font-weight: bold;
-}
-
-#short-input {
-  height: 25px;
 }

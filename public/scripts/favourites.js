@@ -1,4 +1,4 @@
-$(document).ready( () => {
+$(function() {
 
   $(".favproduct").on("click", function(event) {
     event.preventDefault();
@@ -18,7 +18,6 @@ $(document).ready( () => {
       $(this).addClass("far").css("color", "black")
       $(this).removeClass("fas");
     }
-
   });
 
 });

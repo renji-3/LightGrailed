@@ -1,8 +1,7 @@
-body {
-  background-image: url(https://i.pinimg.com/originals/03/0e/12/030e12a9d79ff89f8b08675c31c8c1c3.jpg);
-  background-size: cover;
-  font-family: "Cambria";
-  margin: 0;
+.bg {
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/diagonal-striped-brick.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .container {
@@ -17,7 +16,7 @@ body {
   background: #fff;
   box-shadow:
       0px 0px 0px 5px rgba(21, 20, 20, 0.4),
-      0px 4px 20px rgba(60, 113, 188, 0.79);
+      0px 4px 20px rgba(46, 46, 46, 0.79);
   border-radius: 5px;
   display: table;
 }
@@ -97,7 +96,7 @@ input::-webkit-input-placeholder {
   letter-spacing: 1px;
   text-align: center;
   text-decoration: none;
-  background: linear-gradient(0deg, #788cb3, #b8c8ef);
+  background: linear-gradient(0deg, #2d2e32, #4a4a4a);
   border-radius: 5px;
   border: 1px solid #737b8d;
   box-shadow:
@@ -110,7 +109,7 @@ input::-webkit-input-placeholder {
 }
 
 #register #submits:hover {
-  background: linear-gradient(0deg, #55617c, #afbfe0);
+  background: linear-gradient(0deg, #636363, #1c1a1a);
 }
 
 #register .login {
