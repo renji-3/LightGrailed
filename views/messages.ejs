@@ -30,28 +30,10 @@
     <div class="msg-container" id="text">
       <h2 class="title"><%= key.key_name %></h2>
       <p class="descriptions"><%= key.message_content %></p>
-      <p class="descriptions"><%= key.username %></p>
     </div>
   </div>
   <% } %>
 
 </body>
 </html>
-
-<script type="text/javascript">
-  function approve(id) {
-    let product_id = id;
-    console.log(product_id);
-
-    $.ajax({
-      url: "/messages/delete",
-      method: "DELETE",
-      data: `product_id=${product_id}`,
-      success: function(html) {
-        location.reload();
-      }
-    })
-    .reload();
-  }
-</script>
 

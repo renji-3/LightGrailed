@@ -4,11 +4,16 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    res.render("create-listing");
+    const username = req.session.username;
+    const user_id = req.session.userID
+    const templateVars = {
+      user: username,
+    }
+    res.render("create-listing", templateVars);
   });
 
   router.post("/", (req, res) => {
-    const userID = req.session.userID;
+    const user_id = req.session.userID
     const price = (req.body.price);
     const productName = req.body.name;
     const productDescription = req.body.description;
@@ -18,7 +23,7 @@ module.exports = (db) => {
     INSERT INTO products (seller_id, product_name, price, product_description, image_url)
     VALUES ($1, $2, $3, $4, $5) RETURNING *;
   `;
-    const queryParams = [userID, productName, price, productDescription, imageUrl];
+    const queryParams = [user_id, productName, price, productDescription, imageUrl];
 
     db.query(queryString, queryParams)
       .then(response => {

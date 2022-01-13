@@ -9,5 +9,6 @@ $(function() {
       method: "POST",
       data: {message: $("#text-message").val(), product_id: $(".favproduct").attr('id')}
     })
+    this.reset();
   })
 });

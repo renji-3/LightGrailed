@@ -8,6 +8,14 @@
   margin-right: 150px;
 }
 
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 18px;
+}
+
 .product-img {
   display: flex;
   object-fit: cover;
@@ -82,4 +90,3 @@ body {
 .message-btn:hover {
   background: linear-gradient(0deg, #6e6e6f, #bbbbbb);
 }
-
