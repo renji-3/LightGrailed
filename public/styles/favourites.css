@@ -6,20 +6,31 @@
 .fav-listing {
   display: flex;
   justify-self: center;
-  width: 60%;
-  height: 250px;
+  width: 50%;
+  height: 16rem;
   padding: 15px;
   border: 2px solid rgb(169, 163, 163);
   margin-bottom: 20px;
-  margin-left: 17%;
+  margin-left: auto;
+  margin-right: auto;
   text-decoration: none;
+  text-align: center;
 }
 
 .msg-container {
   display: flex;
   flex-direction: column;
-  word-wrap: break-word;
+  word-wrap: wrap;
   padding-left: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.msg-container > h2, p {
+  margin-bottom: 5px;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
@@ -29,8 +40,9 @@
 
 .descriptions {
   font-size: 22px;
-  max-width: 80%;
+  max-width: 100%;
   max-height: 10%;
+  text-align: center;
 }
 
 .product-link {
@@ -41,7 +53,9 @@ img {
   object-fit: cover;
   float: left;
   width: 15rem;
-  height: 10rem
+  height: 15rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 body{
