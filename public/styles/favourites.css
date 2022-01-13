@@ -24,6 +24,8 @@
   padding-left: 50px;
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .msg-container > h2, p {
@@ -62,15 +64,20 @@ body{
 margin: 0px;
 }
 
+.fav-listing i {
+  display: flex;
+
+}
+
 .trashproduct {
   display: flex;
-  justify-self: flex-end;
+  justify-content: end;
+  float: right;
   width: 0px;
   float: right;
   font-size: 25px;
-  padding-right: 26px;
 }
 
-.icons:hover {
+.trashproduct:hover {
   color: rgb(20, 26, 184);
 }

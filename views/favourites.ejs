@@ -28,11 +28,11 @@
   <div class="fav-listing">
     <img src="<%= key.image_url %>">
     <div class="msg-container" id="text">
-    <h2 class="title"><%= key.product_name %></h2>
+      <h2 class="title"><%= key.product_name %></h2>
       <p class="descriptions"><%= key.product_description %></p>
       <p class="descriptions"><%= key.price %></p>
-        <i id="<%= key.id %>" class="fas fa-trash trashproduct icons" onclick="approve(this.id)"></i>
     </div>
+    <i id="<%= key.id %>" class="fas fa-trash trashproduct icons" onclick="approve(this.id)"></i>
   </div>
   <% } %>
 
