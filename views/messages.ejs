@@ -25,7 +25,6 @@
   <h1 class="page-title">My Messages</h1>
 
   <% for (let key of product) { %>
-<!-- <a href="#" class="preview-block"> IF NOT NECESSARY THEN REMOVE -->
   <div class="message-preview">
     <img src="<%= key.image_url %>">
     <div class="msg-container" id="text">
@@ -33,9 +32,7 @@
       <p class="descriptions"><%= key.message_content %></p>
       <p class="descriptions"><%= key.username %></p>
     </div>
-    <i id="<%= product.id %>" class="fas fa-trash trashproduct" onclick="approve(this.id)"></i>
   </div>
-<!-- </a> -->
   <% } %>
 
 </body>
