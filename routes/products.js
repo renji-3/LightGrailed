@@ -14,8 +14,8 @@ router.get("/:id", (req, res) => {
     // console.log(response.rows[0])
     const templateVars = {
       product: response.rows[0],
-      user: user_id,
-      username: username
+      user: username,
+      username: user_id
     }
     console.log("template:", templateVars)
     res.render("products", templateVars);
@@ -24,5 +24,23 @@ router.get("/:id", (req, res) => {
     console.log(err.message);
   })
 })
+
+router.post("/sold/:id", (req, res) => {
+  const productID = req.params.id;
+
+  const queryString = `
+    UPDATE products
+    SET is_available = false
+    WHERE id = $1;
+  `
+
+  db.query(queryString, [productID])
+    .then(data => {
+      res.redirect("/")
+    })
+    .catch(err => { console.log(err.message)
+    });
+});
+
 
 module.exports = router

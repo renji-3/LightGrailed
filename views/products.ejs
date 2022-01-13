@@ -35,6 +35,18 @@
     <!-- <form class="form-info" method="POST" action="/messages"> -->
       <div class="right-container">
 
+        <% if (username === product.seller_id ) { %>
+               <div id="mark-as-sold">
+                 <form action='sold/<%=product.id%>' method="POST">
+                   <button class="sold" id="mark-as-sold-btn">Mark product as sold</button>
+                 </form>
+               </div>
+             <% } else { %>
+
+              <div></div>
+
+              <% } %>
+
         <h2 class="title"><%= product.product_name %></h2>
           <p class="descriptions"><%= product.product_description %></p>
         <h3 class="price">$<%= product.price %></h3>

@@ -90,3 +90,35 @@ body {
 .message-btn:hover {
   background: linear-gradient(0deg, #6e6e6f, #bbbbbb);
 }
+
+.sold {
+  display: flex;
+  align-self: center;
+  width: 30%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px 0;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Courier New", serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(0deg, #ca4540, #fa8671);
+  border-radius: 5px;
+  border: 1px solid #737b8d;
+  box-shadow:
+      0px 5px 5px rgba(000,000,000,0.1),
+      inset 0px 1px 0px rgba(255,255,255,0.5);
+  text-shadow:
+      0px 1px 3px rgba(000,000,000,0.3),
+      0px 0px 0px rgba(255,255,255,0);
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sold:hover {
+  background: linear-gradient(0deg, #e06c35, #f59f6d);
+}

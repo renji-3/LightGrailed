@@ -5,7 +5,7 @@
 
 .message-preview {
   display: flex;
-  justify-self: center;
+  justify-content: center;
   width: 40%;
   height: 10%;
   padding: 20px;

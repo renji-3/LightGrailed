@@ -19,8 +19,8 @@ router.get("/", (req, res) => {
     // console.log(response.rows[0])
       const templateVars = {
         product: response.rows,
-        user: user_id,
-        username: username
+        user: username,
+        username: user_id
       }
       console.log(templateVars.myListings);
       res.render("my-listings", templateVars);
