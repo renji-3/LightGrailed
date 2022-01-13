@@ -1,72 +1,72 @@
-// const express = require('express');
-// const router = express.Router();
-// const { Pool } = require("pg");
-// const dbParams = require("../lib/db.js");
-// const db = new Pool(dbParams);
-
-// router.get("/", (req, res) => {
-//     res.render("favourites");
-//   });
-
-// router.get("/", (req, res) => {
-//     const queryString = `
-//       SELECT * FROM favourites
-//       JOIN products ON product_id = products.id
-//       WHERE product_id = 1;
-//     `
-//     db.query(queryString)
-//       .then(response => {
-//         const templateVars = { products: response.rows }
-//         res.render("favourites", templateVars);
-//       })
-//       .catch((err) => {
-//       console.log(err.message);
-//     });
-// });
-
-// router.post("/delete", (req, res) => {
-//     const userID = req.session.userID;
-//     const productID = req.body.productID;
-
-//     const queryString = `DELETE FROM favourites WHERE user_id = $1 AND product_id = $2 RETURNING *;`
-
-//     db.query(queryString, [userID, productID])
-//     .then(response => {
-//       res.redirect("/")
-//     })
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-//   });
-
-// module.exports = router;
-
-// // Logic for adding favouriting product?
-
-// $(() => {
-//     $('.fav-heart-icon').click((event) => { //Click heart icon
-//       if ($(event.target).data("id") === "un-fav-heart") { //Current heart icon is not favourited
-//         event.preventDefault();
-//         $(event.target).removeClass("un fav-heart").addClass("fav red-heart").css("color", "red");
-//         $(event.target).data('id', "fav-red-heart"); //Set ID to fav-red-heart
-
-//         $.post("/favourites", { productID: $(event.target).data("item") })
-//           .done((response) => {
-//           console.log(response);
-//           })
-//         } else { //Current heart is favourited and we unfavourite it
-//           event.preventDefault();
-//           $(event.target).removeClass("fav red-heart").addClass("un fav-heart")
-//           $(event.target).data('id', "un-fav-heart") //Set heart id as unfav
-
-//           $.post("/favourites/delete", { productID: $(event.target).data("item")})
-//             .done(() => {
-//             console.log("Remove item from favourites");
-//           })
-//         }
-//       })
-//     });
+const express = require('express');
+const router = express.Router();
+const { Pool } = require("pg");
+const dbParams = require("../lib/db.js");
+const db = new Pool(dbParams);
 
 
-//     // INSERT INTO favourites (user_id, product_id)
-//     // VALUES (1,1);
+router.get("/", (req, res) => {
+  const id = req.session.userID
+  console.log(id)
+  const username = req.session.username;
+  const user_id = req.session.userID
+
+  const queryString = `
+    SELECT products.*, favourites.* FROM products
+    JOIN favourites ON product_id = products.id
+    WHERE favourites.user_id = $1
+    ORDER BY favourites.id DESC;
+  `
+  db.query(queryString, [id])
+    .then(response => {
+      console.log("res:", response.rows)
+      const templateVars = {
+        product: response.rows,
+        user: username
+      }
+      console.log("template:", templateVars)
+      res.render("favourites", templateVars);
+    })
+    .catch((err) => {
+    console.log(err.message);
+  });
+});
+
+router.post("/", (req, res) => {
+  const product_id = req.body.product_id;
+  console.log(product_id);
+  const user_id = req.session.userID;
+
+  db.query(`
+    INSERT INTO favourites (user_id, product_id) VALUES ($1, $2)
+  `, [user_id, product_id])
+  .then((response) => {
+    console.log(response)
+    res.send("success!~")
+  })
+  .catch((err) => {
+    console.log(err.message);
+    res.send("failure")
+  });
+
+})
+
+router.delete("/delete", (req, res) => {
+  const favourites_id = req.body.product_id;
+  console.log(req.body)
+
+  db.query(`
+  DELETE FROM favourites WHERE favourites.id = $1 RETURNING *`, [favourites_id])
+  .then((response) => {
+    console.log(response)
+    res.send("success!~")
+  })
+  .catch((err) => {
+    console.log(err.message);
+    res.send("failure")
+  });
+
+})
+
+
+module.exports = router;

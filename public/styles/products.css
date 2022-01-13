@@ -2,16 +2,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 150px;
   margin-left: 150px;
   margin-right: 150px;
 }
 
-img {
-  padding-top: 10px;
-  width: 100%;
-  height: 100%;
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.product-img {
+  display: flex;
+  object-fit: cover;
+  margin: 10px;
+  width: 500px;
+  height: 600px;
+  margin-right: -20px;
 }
 
 body {
@@ -21,33 +32,48 @@ body {
 .right-container {
   display: flex;
   flex-direction: column;
+  text-align: center;
   width: 100%;
   padding-left: 100px;
-  word-wrap: break-word
+  word-wrap: wrap;
 }
 
-.icons i {
+.right-container > h2, p, h3 {
+  margin: 10px;
+}
+
+.icons{
   color: black;
   font-size: 35px;
 }
 
-.icons i:hover {
+.icons > i:hover {
   color: red;
+  cursor: pointer;
 }
 
-.message #submits {
-  width: 100%;
+.text-message {
+  resize: none;
+  width: 80%;
+  height: 200px;
+  margin-top: 20px;
+}
+
+.message-btn {
+  display: flex;
+  align-self: center;
+  width: 70%;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 15px 0;
   color: #fff;
   font-size: 16px;
-  font-family: "Times New Roman";
+  font-family: "Courier New", serif;
   font-weight: 500;
   letter-spacing: 1px;
   text-align: center;
   text-decoration: none;
-  background: linear-gradient(0deg, #788cb3, #b8c8ef);
+  background: linear-gradient(0deg, #363637, #67686a);
   border-radius: 5px;
   border: 1px solid #737b8d;
   box-shadow:
@@ -57,8 +83,10 @@ body {
       0px 1px 3px rgba(000,000,000,0.3),
       0px 0px 0px rgba(255,255,255,0);
   display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.message #submits:hover {
-  background: linear-gradient(0deg, #55617c, #afbfe0);
+.message-btn:hover {
+  background: linear-gradient(0deg, #6e6e6f, #bbbbbb);
 }

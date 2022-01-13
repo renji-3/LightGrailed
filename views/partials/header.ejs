@@ -7,14 +7,15 @@
 <!--APP CSS-->
 <link rel="stylesheet" href="/styles/nav-header.css" type="text/css" />
 
+
 <header class="nav-header">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar">
         <div class="left-side">
-          <a class="nav-item" href="/">GraiLHLed</a>
+          <a class="nav-item site-name" href="/">GraiLHLed</a>
           <div class="search"></div>
             <div class="price-filt">
-              <a class="nav-item">Filter by Price:</a>
+              <a class="nav-item">Filter by Max Price:</a>
               <form method="POST" action="/filters">
                 <select id="prices" name="prices">
                   <option value="100">$100</option>
@@ -28,16 +29,31 @@
               </form>
             </div>
           </div>
-        <div class="right-side">
-          <a class="nav-item" href="/favourites"><i class="far fa-heart"></i></a>
-          <a class="nav-item" href="/messages"><i class="far fa-comment-alt"></i></a>
-          <a class="nav-item" href="/createlisting">Create Listing</a>
-          <a class="nav-item" href="/login">Login</a>
-          <a class="nav-item" href="/register">Register</a>
+
+          <a class="fas fa-space-shuttle center-button" href="/"></a>
+
+
+          <% if(!user) { %>
+            <form method="GET" action="/login">
+              <a class="nav-item" href="/register">Register</a>
+              <button class="logout" type="submit">Login</button>
+            </form>
+          <% } else { %>
+            <form method="POST" action="/logout">
+              <div class="right-side">
+              <a class="nav-item" href="/favourites"><i class="far fa-heart"></i></a>
+              <a class="nav-item" href="/messages"><i class="far fa-comment-alt"></i></a>
+              <a class="nav-item" href="/createlisting">Create Listing</a>
+              <label id ="username" for="name"><b><%= user %></b></label>
+              <button class="logout" type="submit">Logout</button>
+              </div>
+            </form>
+          <% } %>
       </div>
       </div>
     </div>
   </nav>
 
 </header>
+
 
