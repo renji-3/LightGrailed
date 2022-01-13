@@ -8,17 +8,21 @@ const db = new Pool(dbParams);
 router.get("/", (req, res) => {
   const id = req.session.userID
   console.log(id)
+  const username = req.session.username;
+  const user_id = req.session.userID
 
   const queryString = `
     SELECT products.*, favourites.* FROM products
     JOIN favourites ON product_id = products.id
-    WHERE favourites.user_id = $1;
+    WHERE favourites.user_id = $1
+    ORDER BY favourites.id DESC;
   `
   db.query(queryString, [id])
     .then(response => {
       console.log("res:", response.rows)
       const templateVars = {
-        product: response.rows
+        product: response.rows,
+        user: username
       }
       console.log("template:", templateVars)
       res.render("favourites", templateVars);
