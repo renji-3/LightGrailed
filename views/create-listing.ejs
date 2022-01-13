@@ -17,15 +17,14 @@
       <form class="form-info" method="POST" action="/createlisting">
         <label>Title:</label>
         <textarea type="text" name="name" id="short-input"></textarea>
-        <label>Price:</label>
-        <textarea type="number" name="price" id="short-input"></textarea>
-        <label>Description:</label>
+        <label>Price in $CAD:</label>
+        <textarea type="number" name="price" id="short-input" placeholder="$"></textarea>
+        <label>Description (Under 255 Characters):</label>
         <textarea type="text" name="description"></textarea>
-        <label>Image URL:</label>
+        <label>Image URL (Under 255 Characters):</label>
         <textarea type="text" name="image"></textarea>
         <button type="submit" value="submit" class="sender">Submit</button>
       </form>
     </div>
   </body>
 </html>
- 

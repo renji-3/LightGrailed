@@ -7,7 +7,7 @@
   display: flex;
   justify-self: center;
   width: 50%;
-  height: 16rem;
+  height: 25%;
   padding: 15px;
   border: 2px solid rgb(169, 163, 163);
   margin-bottom: 20px;
@@ -15,6 +15,11 @@
   margin-right: auto;
   text-decoration: none;
   text-align: center;
+  transition: box-shadow .3s;
+}
+
+.fav-listing:hover {
+  box-shadow: 5px 10px;
 }
 
 .msg-container {
@@ -55,7 +60,7 @@ img {
   object-fit: cover;
   float: left;
   width: 15rem;
-  height: 15rem;
+  height: 20rem;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -74,10 +79,12 @@ margin: 0px;
   justify-content: end;
   float: right;
   width: 0px;
+  height: 0px;
   float: right;
   font-size: 25px;
 }
 
 .trashproduct:hover {
-  color: rgb(20, 26, 184);
+  color: rgb(179, 98, 98);
+  cursor: pointer;
 }

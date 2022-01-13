@@ -25,19 +25,17 @@
   <h1 class="page-title">My Messages</h1>
 
   <% for (let key of product) { %>
-  <article class="message-preview">
-  <a href="#" class="preview-block">
+<!-- <a href="#" class="preview-block"> IF NOT NECESSARY THEN REMOVE -->
+  <div class="message-preview">
     <img src="<%= key.image_url %>">
     <div class="msg-container" id="text">
-    <h2 class="title"><%= key.key_name %></h2>
+      <h2 class="title"><%= key.key_name %></h2>
       <p class="descriptions"><%= key.message_content %></p>
       <p class="descriptions"><%= key.username %></p>
-      <div class="icons">
-        <i id="<%= product.id %>" class="fas fa-trash trashproduct" onclick="approve(this.id)"></i>
-      </div>
     </div>
-    </a>
-  </article>
+    <i id="<%= product.id %>" class="fas fa-trash trashproduct" onclick="approve(this.id)"></i>
+  </div>
+<!-- </a> -->
   <% } %>
 
 </body>
