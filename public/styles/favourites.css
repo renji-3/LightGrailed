@@ -7,6 +7,15 @@ body{
   justify-content: center;
 }
 
+img {
+  object-fit: cover;
+  float: left;
+  width: 15rem;
+  height: 20rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .fav-listing {
   display: flex;
   justify-self: center;
@@ -24,6 +33,10 @@ body{
 
 .fav-listing:hover {
   box-shadow: 5px 10px;
+}
+
+.fav-listing i {
+  display: flex;
 }
 
 .msg-container {
@@ -54,23 +67,6 @@ body{
   max-width: 100%;
   max-height: 10%;
   text-align: center;
-}
-
-.product-link {
-  text-decoration: none;
-}
-
-img {
-  object-fit: cover;
-  float: left;
-  width: 15rem;
-  height: 20rem;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.fav-listing i {
-  display: flex;
 }
 
 .trashproduct {

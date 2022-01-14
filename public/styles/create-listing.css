@@ -27,6 +27,10 @@ body {
   margin-bottom: 20px;
 }
 
+#short-input {
+  height: 25px;
+}
+
 .sender {
   background-color: rgb(50, 50, 50);
   border: none;
@@ -48,8 +52,4 @@ body {
 
 label {
   font-weight: bold;
-}
-
-#short-input {
-  height: 25px;
 }

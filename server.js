@@ -45,9 +45,9 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const registerRoutes = require("./routes/register");
-const loginRoutes = require("./routes/login")
-const filterRoutes = require("./routes/filters")
-const productRoutes = require("./routes/products")
+const loginRoutes = require("./routes/login");
+const filterRoutes = require("./routes/filters");
+const productRoutes = require("./routes/products");
 const listingRoutes = require("./routes/createListing");
 const favouritesRoutes = require("./routes/favourites");
 const myListingRoutes = require("./routes/myListings");
@@ -68,72 +68,72 @@ app.use("/myListings", myListingRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  const user_id = req.session.userID
+  const user_id = req.session.userID;
   const username = req.session.username;
 
   db.query(`SELECT * FROM products ORDER BY id DESC`)
-  .then((response) => {
-    console.log("response:", response.rows)
-    const templateVars = {
-      product: response.rows,
-      user: username,
-      user_id: user_id
-    }
-    console.log("template:", templateVars)
-    res.render("index", templateVars);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
+    .then((response) => {
+      console.log("response:", response.rows);
+      const templateVars = {
+        product: response.rows,
+        user: username,
+        user_id: user_id
+      };
+      console.log("template:", templateVars);
+      res.render("index", templateVars);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 
 });
 
 app.get("/messages", (req, res) => {
-  console.log(req.session.userID)
+  console.log(req.session.userID);
   const username = req.session.username;
-  const user_id = req.session.userID
+  const user_id = req.session.userID;
   const templateVars = {
     user: username
-  }
+  };
 
   return db.query(`SELECT messages.*, products.*, users.* FROM messages JOIN products ON products.id = messages.product_id JOIN users ON users.id = messages.user_id WHERE users.id = $1 ORDER BY messages.id DESC`, [user_id])
-  .then((response) => {
-    console.log("response:", response.rows)
-    const templateVars = {
-      product: response.rows,
-      user: username
-    }
-    console.log("template:", templateVars)
-    res.render("messages", templateVars);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
-})
+    .then((response) => {
+      console.log("response:", response.rows);
+      const templateVars = {
+        product: response.rows,
+        user: username
+      };
+      console.log("template:", templateVars);
+      res.render("messages", templateVars);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
 
 app.post("/messages", (req, res) => {
-  console.log("body:", req.body)
+  console.log("body:", req.body);
   const message = req.body.message;
   const user_id = req.session.userID;
   const product_id = req.body.product_id;
 
   db.query(`INSERT INTO messages (user_id, product_id, message_content) VALUES ($1, $2, $3)`, [user_id, product_id, message])
-  .then((response) => {
-    console.log(response)
-    res.send("success!~")
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
-})
+    .then((response) => {
+      console.log(response);
+      res.send("success!~");
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
 
 app.get("/success", (req, res) => {
   const username = req.session.username;
-  const user_id = req.session.userID
+  const user_id = req.session.userID;
   const templateVars = {
     user: user_id,
     username: username
-  }
+  };
   res.render("listing-created", templateVars);
 });
 
