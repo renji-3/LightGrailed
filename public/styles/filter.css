@@ -27,4 +27,8 @@ img:hover {
   flex-wrap: wrap;
 }
 
+#opac-img {
+  opacity: 0.35;
+}
+
 

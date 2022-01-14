@@ -131,8 +131,8 @@ app.get("/success", (req, res) => {
   const username = req.session.username;
   const user_id = req.session.userID;
   const templateVars = {
-    user: user_id,
-    username: username
+    user: username,
+    username: user_id,
   };
   res.render("listing-created", templateVars);
 });
