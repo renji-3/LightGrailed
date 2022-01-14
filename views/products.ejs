@@ -22,34 +22,39 @@
   <title><%= product.product_name %></title>
 </head>
 <%- include('partials/header') %>
+
+
 <body>
-
-  <!-- <h1>Product Name</h1> -->
-
-  <main class="main-container">
+  <div class="main-container">
 
     <div class="left-container">
-      <img src="<%= product.image_url %>">
+
+      <img class="product-img" src="<%= product.image_url %>">
     </div>
 
-    <div class="right-container">
-      <h2 class="title"><%= product.product_name %></h2>
-        <p class="descriptions"><%= product.product_description %></p>
-      <h3 class="price">$<%= product.price %></h3>
-        <div class="icons">
-          <i id="<%= product.id %>" class="far fa-heart favproduct" ></i>
-        </div>
-      <div class="message">
-        <form id="message-form">
-          <div class="save">
-            <textarea id="text-message" cols="30" rows="10" placeholder="Leave a message to the seller." required></textarea>
-            <input type="submit" value="Message Seller" class="submit-btn">
+    <!-- <form class="form-info" method="POST" action="/messages"> -->
+      <div class="right-container">
+
+        <h2 class="title"><%= product.product_name %></h2>
+          <p class="descriptions"><%= product.product_description %></p>
+        <h3 class="price">$<%= product.price %></h3>
+          <div class="icons">
+            <i id="<%= product.id %>" class="far fa-heart favproduct" ></i>
           </div>
-        </form>
-      </div>
-    </div>
 
-  </main>
+        <div class="message">
+          <form id="message-form">
+            <div class="save">
+              <textarea class="text-message" cols="30" rows="10" placeholder="Leave a message to the seller." required></textarea>
+              <input class="message-btn" type="submit" value="Message Seller" class="submit-btn">
+            </div>
+          <!-- </form> -->
+        </div>
+
+      </div>
+    </form>
+
+  </div>
 
 </body>
 </html>

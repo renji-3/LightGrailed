@@ -82,3 +82,7 @@ a {
  display: flex;
  align-items: baseline;
 }
+
+#username {
+  padding-right: 30px;
+}

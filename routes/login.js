@@ -6,7 +6,13 @@ const dbParams = require("../lib/db.js");
 const db = new Pool(dbParams);
 
 router.get("/", (req, res) => {
-  res.render("login");
+  const username = req.session.username;
+  const user_id = req.session.userID
+  const templateVars = {
+    user: user_id,
+    username: username
+  }
+  res.render("login", templateVars);
 });
 
 router.post("/", (req, res) => {
@@ -19,6 +25,7 @@ router.post("/", (req, res) => {
       if (bcrypt.compareSync(password, response.rows[0].password)) {
         console.log("res", response.rows[0]);
         req.session.userID = response.rows[0].id;
+        req.session.username = username;
         console.log(req.session);
         res.redirect("/");
       } else console.log('BAD PASS!');

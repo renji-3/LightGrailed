@@ -44,25 +44,23 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
 const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login")
 const filterRoutes = require("./routes/filters")
 const productRoutes = require("./routes/products")
 const listingRoutes = require("./routes/createListing");
 const favouritesRoutes = require("./routes/favourites");
+const myListingRoutes = require("./routes/myListings");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
 app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
 app.use("/filters", filterRoutes);
 app.use("/products", productRoutes);
 app.use("/createlisting", listingRoutes(db));
 app.use("/favourites", favouritesRoutes);
+app.use("/myListings", myListingRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -70,13 +68,16 @@ app.use("/favourites", favouritesRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  console.log(req.session.userID);
+  const user_id = req.session.userID
+  const username = req.session.username;
 
-  return db.query(`SELECT * FROM products ORDER BY id`)
+  db.query(`SELECT * FROM products ORDER BY id DESC`)
   .then((response) => {
     console.log("response:", response.rows)
     const templateVars = {
-      product: response.rows
+      product: response.rows,
+      user: username,
+      user_id: user_id
     }
     console.log("template:", templateVars)
     res.render("index", templateVars);
@@ -84,17 +85,23 @@ app.get("/", (req, res) => {
   .catch((err) => {
     console.log(err.message);
   })
+
 });
 
 app.get("/messages", (req, res) => {
   console.log(req.session.userID)
-  const id = req.session.userID
+  const username = req.session.username;
+  const user_id = req.session.userID
+  const templateVars = {
+    user: username
+  }
 
-  return db.query(`SELECT messages.*, products.*, users.* FROM messages JOIN products ON products.id = messages.product_id JOIN users ON users.id = messages.user_id WHERE users.id = $1`, [id])
+  return db.query(`SELECT messages.*, products.*, users.* FROM messages JOIN products ON products.id = messages.product_id JOIN users ON users.id = messages.user_id WHERE users.id = $1 ORDER BY messages.id DESC`, [user_id])
   .then((response) => {
     console.log("response:", response.rows)
     const templateVars = {
-      product: response.rows
+      product: response.rows,
+      user: username
     }
     console.log("template:", templateVars)
     res.render("messages", templateVars);
@@ -120,24 +127,14 @@ app.post("/messages", (req, res) => {
   })
 })
 
-app.delete("/messages/delete", (req, res) => {
-  const id = req.body.product_id;
-  console.log(req.body)
-
-  db.query(`
-  DELETE FROM messages WHERE messages.id = $1 RETURNING *`, [id])
-  .then((response) => {
-    console.log(response)
-    res.send("success!~")
-  })
-  .catch((err) => {
-    console.log(err.message);
-    res.send("failure")
-  });
-});
-
 app.get("/success", (req, res) => {
-  res.render("listing-created");
+  const username = req.session.username;
+  const user_id = req.session.userID
+  const templateVars = {
+    user: user_id,
+    username: username
+  }
+  res.render("listing-created", templateVars);
 });
 
 app.post('/logout', (req, res) => {

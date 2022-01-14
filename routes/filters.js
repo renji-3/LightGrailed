@@ -5,18 +5,27 @@ const dbParams = require("../lib/db.js");
 const db = new Pool(dbParams);
 
 router.get("/", (req, res) =>{
-  res.render("filters")
+  const username = req.session.username;
+  const user_id = req.session.userID
+  const templateVars = {
+    user: user_id,
+    username: username
+  }
+  res.render("filters", templateVars)
 })
 
 router.post("/", (req, res) =>{
   console.log(req.body)
-  const price = req.body.prices;
+  let price = req.body.prices;
+  const username = req.session.username;
+  const user_id = req.session.userID
 
   return db
-  .query(`SELECT * FROM products WHERE products.price <= $1`, [price])
+  .query(`SELECT * FROM products WHERE price <= $1 ORDER BY price DESC`, [price])
   .then((response) => {
     const templateVars = {
-      products: response.rows
+      products: response.rows,
+      user: username
     }
     console.log("res", response.rows)
     console.log("template", templateVars)
