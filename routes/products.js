@@ -7,22 +7,41 @@ const db = new Pool(dbParams);
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   const username = req.session.username;
-  const user_id = req.session.userID
+  const user_id = req.session.userID;
 
   db.query(`SELECT * FROM products WHERE products.id = $1`, [id])
-  .then((response) => {
+    .then((response) => {
     // console.log(response.rows[0])
-    const templateVars = {
-      product: response.rows[0],
-      user: user_id,
-      username: username
-    }
-    console.log("template:", templateVars)
-    res.render("products", templateVars);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
-})
+      const templateVars = {
+        product: response.rows[0],
+        user: username,
+        username: user_id,
+      };
+      console.log("template:", templateVars);
+      res.render("products", templateVars);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
 
-module.exports = router
+router.post("/sold/:id", (req, res) => {
+  console.log(req.body);
+  const productID = req.body.product_id;
+
+  const queryString = `
+    UPDATE products
+    SET is_available = false
+    WHERE id = $1;
+  `;
+
+  db.query(queryString, [productID])
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => {
+      console.log(err.message);
+    });
+});
+
+module.exports = router;

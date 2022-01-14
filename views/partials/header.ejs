@@ -11,11 +11,11 @@
 <header class="nav-header">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar">
-        <div class="left-side">
-          <a class="nav-item site-name" href="/">GraiLHLed</a>
+
+
           <div class="search"></div>
             <div class="price-filt">
-              <a class="nav-item">Filter by Max Price:</a>
+              <a id="filt">Filter by Max Price:</a>
               <form method="POST" action="/filters">
                 <select id="prices" name="prices">
                   <option value="100">$100</option>
@@ -27,15 +27,20 @@
                 </select>
                 <button type="submit"><i class="fas fa-search" id="filt-button"></i></button>
               </form>
+
+            <div class="mid" href="/">
+              <a class="site-name" href="/">GraiLHLed</a>
+              <a class="fas fa-space-shuttle center-button" href="/"></a>
             </div>
+
           </div>
 
-          <a class="fas fa-space-shuttle center-button" href="/"></a>
+
 
 
           <% if(!user) { %>
-            <form method="GET" action="/login">
-              <a class="nav-item" href="/register">Register</a>
+            <form class="acc-cre" method="GET" action="/login">
+              <a id="register" href="/register">Register</a>
               <button class="logout" type="submit">Login</button>
             </form>
           <% } else { %>
@@ -44,6 +49,7 @@
               <a class="nav-item" href="/favourites"><i class="far fa-heart"></i></a>
               <a class="nav-item" href="/messages"><i class="far fa-comment-alt"></i></a>
               <a class="nav-item" href="/createlisting">Create Listing</a>
+              <a class="nav-item" href="/mylistings">My Listings</a>
               <label id ="username" for="name"><b><%= user %></b></label>
               <button class="logout" type="submit">Logout</button>
               </div>

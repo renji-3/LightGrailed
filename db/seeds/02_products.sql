@@ -42,3 +42,4 @@ INSERT INTO products (seller_id, product_name, price, product_description, image
 
 INSERT INTO products (seller_id, product_name, price, product_description, image_url)
     VALUES (5, 'Gucci Ace Flower Low Top Sneakers', 1600, 'New perfect condition. Unisex size 7', 'https://i.pinimg.com/564x/bd/16/6d/bd166de72f2d2226cacb009b680e69d8--gucci-sneakers-gucci-shoes.jpg');
+
