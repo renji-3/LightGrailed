@@ -12,16 +12,21 @@
 </head>
 
 <%- include('partials/header') %>
-
 <body>
 
 <h1 class="page-title">Filtered Search</h1>
 
-<div class='filtered-products'>
-  <% for (let key of products) { %>
+<div class='display-products'>
+
+<% for (let key of products) { %>
+  <% if (key.is_available == true ) { %>
     <a class="product" href="/products/<%= key.id %>"><img src="<%= key.image_url %>"></a>
+  <% } else { %>
+    <a class="product" id="opac-img" href="/products/<%= key.id %>"><img src="<%= key.image_url %>"></a>
   <% } %>
-</div>
+<% } %>
+
+  </div>
 
 </body>
 </html>

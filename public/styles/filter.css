@@ -2,6 +2,17 @@ body {
   margin: 0px;
  }
 
+ .page-title {
+  display: flex;
+  justify-content: center;
+}
+
+.display-products{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
  img {
   object-fit: cover;
   margin: 10px;
@@ -16,12 +27,7 @@ img:hover {
   box-shadow: 5px 10px;
 }
 
-.page-title {
-  display: flex;
-  justify-content: center;
-}
-
-.filtered-products {
+.product {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
