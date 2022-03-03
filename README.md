@@ -7,7 +7,7 @@ Lightgrailed is a buy and sell platform made for shoe collectors and resellers.
 !["Landing page"](https://github.com/renji-3/LightGrailed/blob/master/docs/lg_homepage.gif)
 
 ## Products Page
-You can contact the seller through our products page and favourite any product! You can even create your own listing to start selling your shoes!
+You can contact the seller through our products page and favourite any product! You can keep track and create your own listing to start selling your shoes!
 
 !["Products page"](https://github.com/renji-3/LightGrailed/blob/master/docs/lg_products.gif)
 
