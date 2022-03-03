@@ -1,6 +1,19 @@
+body{
+  margin: 0px;
+  }
+
 .page-name {
   display: flex;
   justify-content: center;
+}
+
+img {
+  object-fit: cover;
+  float: left;
+  width: 15rem;
+  height: 20rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .fav-listing {
@@ -20,6 +33,10 @@
 
 .fav-listing:hover {
   box-shadow: 5px 10px;
+}
+
+.fav-listing i {
+  display: flex;
 }
 
 .msg-container {
@@ -52,23 +69,6 @@
   text-align: center;
 }
 
-.product-link {
-  text-decoration: none;
-}
-
-img {
-  object-fit: cover;
-  float: left;
-  width: 15rem;
-  height: 20rem;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-body{
-margin: 0px;
-}
-
 .fav-listing i {
   display: flex;
 
@@ -80,7 +80,6 @@ margin: 0px;
   float: right;
   width: 0px;
   height: 0px;
-  float: right;
   font-size: 25px;
 }
 

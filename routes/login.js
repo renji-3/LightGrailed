@@ -7,11 +7,11 @@ const db = new Pool(dbParams);
 
 router.get("/", (req, res) => {
   const username = req.session.username;
-  const user_id = req.session.userID
+  const user_id = req.session.userID;
   const templateVars = {
     user: user_id,
     username: username
-  }
+  };
   res.render("login", templateVars);
 });
 

@@ -1,11 +1,25 @@
+body {
+  margin: 0px;
+}
+
 .page-title {
   display: flex;
   justify-content: center;
 }
 
+img {
+  object-fit: cover;
+  float: right;
+  width: 45%;
+  height: 10%;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 20px;
+}
+
 .message-preview {
   display: flex;
-  justify-self: center;
+  justify-content: center;
   width: 40%;
   height: 10%;
   padding: 20px;
@@ -45,41 +59,9 @@
   margin-right: auto;
 }
 
-.title {
-  max-width: 100%;
-  max-height: 10%;
-}
-
 .descriptions {
   font-size: 22px;
   max-width: 100%;
   max-height: 10%;
   text-align: center;
-}
-
-img {
-  object-fit: cover;
-  float: right;
-  width: 45%;
-  height: 10%;
-  margin-top: auto;
-  margin-bottom: auto;
-  border-radius: 20px;
-}
-
-
-body {
-  margin: 0px;
-}
-
-.trashproduct {
-  float: left;
-  font-size: 25px;
-  padding-right: 26px;
-  height: 0px;
-}
-
-.trashproduct:hover {
-  color: rgb(179, 98, 98);
-  cursor: pointer;
 }

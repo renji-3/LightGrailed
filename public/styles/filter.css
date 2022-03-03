@@ -1,21 +1,40 @@
-img {
-  object-fit: cover;
-  margin: 10px;
-  width: 400px;
-  height: 365px;
-}
+body {
+  margin: 0px;
+ }
 
-.page-title {
+ .page-title {
   display: flex;
   justify-content: center;
 }
 
-.filtered-products {
+.display-products{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-body {
-  margin: 0px;
- }
+ img {
+  object-fit: cover;
+  margin: 10px;
+  width: 400px;
+  height: 500px;
+  transition: box-shadow .3s;
+  transition: transform .3s;
+}
+
+img:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 10px;
+}
+
+.product {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#opac-img {
+  opacity: 0.35;
+}
+
+

@@ -17,6 +17,13 @@ $(function() {
     } else {
       $(this).addClass("far").css("color", "black")
       $(this).removeClass("fas");
+
+      $.ajax({
+        url: "/favourites/delete",
+        method: "DELETE",
+        data: `product_id=${$(this).attr('id')}`,
+      })
+
     }
   });
 

@@ -32,7 +32,7 @@
       <p class="descriptions"><%= key.product_description %></p>
       <p class="descriptions"><b>$<%= key.price %></b></p>
     </div>
-    <i id="<%= key.id %>" class="fas fa-trash trashproduct icons" onclick="approve(this.id)"></i>
+    <i id="<%= key.product_id %>" class="fas fa-trash trashproduct icons" onclick="approve(this.id)"></i>
   </div>
   <% } %>
 
@@ -52,6 +52,5 @@
         location.reload();
       }
     })
-    .reload()
   }
 </script>
